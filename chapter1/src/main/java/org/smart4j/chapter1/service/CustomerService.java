@@ -12,25 +12,35 @@ import java.util.Map;
  * @Date 2018/9/23 23:23
  * @Version 1.0
  */
-public class CustomerService {
+public interface CustomerService {
 
-    public List<Customer> getCustomerList(Map<String, Object> params){
-        return null;
-    }
+    /**
+     * @param params
+     * @return
+     */
+    List<Customer> getCustomerList(Map<String, Object> params);
 
-    public Customer getCustomer(Long id){
-        return null;
-    }
+    /**
+     * @param id
+     * @return
+     */
+    Customer getCustomer(Long id);
 
-    public boolean createCustomer(Customer customer){
-        return false;
-    }
+    /**
+     * @param customer
+     * @return
+     */
+    boolean createCustomer(Customer customer);
 
-    public boolean updateCustomer(Customer customer){
-        return false;
-    }
+    /**
+     * @param customer
+     * @return
+     */
+    boolean updateCustomer(Customer customer);
 
-    public boolean deleteCustomer(Long id){
-        return false;
-    }
+    /**
+     * @param id
+     * @return
+     */
+    boolean deleteCustomer(Long id);
 }
