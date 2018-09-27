@@ -1,7 +1,5 @@
 package org.smart4j.chapter1.common;
 
-import org.apache.commons.lang3.StringUtils;
-
 /**
  * @ClassName CastUtil
  * @Description TODO
@@ -20,7 +18,7 @@ public class CastUtil {
     }
 
     public static double castDouble(Object obj){
-        return CastUtil.castDouble(obj, 0);
+        return castDouble(obj, 0);
     }
 
     public static double castDouble(Object obj, double defaultValue){
@@ -29,11 +27,69 @@ public class CastUtil {
             String strValue = castString(obj);
             if(StringUtil.isNotEmpty(strValue)){
                 try{
-                    
+                    doubleValue = Double.parseDouble(strValue);
+                }catch (NumberFormatException e){
+                    doubleValue = defaultValue;
                 }
-
             }
         }
-        return
+        return doubleValue;
+    }
+
+    public static long castLong(Object obj){
+        return castLong(obj, 0);
+    }
+
+    public static long castLong(Object obj, long defaultValue){
+        long longValue = defaultValue;
+        if (obj != null){
+            String strValue = castString(obj);
+            if(StringUtil.isNotEmpty(strValue)){
+                try{
+                    longValue = Long.parseLong(strValue);
+                }catch (NumberFormatException e){
+                    longValue = defaultValue;
+                }
+            }
+        }
+        return longValue;
+    }
+
+    public static int castInt(Object obj){
+        return castInt(obj, 0);
+    }
+
+    public static int castInt(Object obj, int defaultValue){
+        int intValue = defaultValue;
+        if (obj != null){
+            String strValue = castString(obj);
+            if(StringUtil.isNotEmpty(strValue)){
+                try{
+                    intValue = Integer.parseInt(strValue);
+                }catch (NumberFormatException e){
+                    intValue = defaultValue;
+                }
+            }
+        }
+        return intValue;
+    }
+
+    public static boolean castBoolean(Object obj){
+        return castBoolean(obj, false);
+    }
+
+    public static boolean castBoolean(Object obj, boolean defaultValue){
+        boolean longValue = defaultValue;
+        if (obj != null){
+            String strValue = castString(obj);
+            if(StringUtil.isNotEmpty(strValue)){
+                try{
+                    longValue = Boolean.parseBoolean(strValue);
+                }catch (NumberFormatException e){
+                    longValue = defaultValue;
+                }
+            }
+        }
+        return longValue;
     }
 }
